@@ -4,8 +4,8 @@
 #include <ESP8266mDNS.h>
 
 #ifndef STASSID
-#define STASSID "UPDATETHIS"
-#define STAPSK  "UPDATETHIS"
+#define STASSID "UPDATESSID"
+#define STAPSK  "UPDATEPASSWD"
 #endif
 
 const char* ssid     = STASSID;
@@ -18,18 +18,19 @@ const int led = LED_BUILTIN;
 const String postForms = "<html>\
   <head>\
     <title>Viasat Relay Controller</title>\
-    <style>\
-      body { background-color: #cccccc; font-family: Arial, Helvetica, Sans-Serif; Color: #000088; }\
-    </style>\  
     <link href=\"https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css\" rel=\"stylesheet\">\
     <script src=\"https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js\"></script>\
     <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/icon?family=Material+Icons\">\
+    <style>\
+      body { background-color: #cccccc; font-family: Arial, Helvetica, Sans-Serif; Color: #000088; }\
+      .mdc-button { width:100%; height:100%; font-size:xx-large; }\
+      .container { width:50%; height:100%; align-items:center; display:flex; padding:1%; }\
+    </style>\  
   </head>\
   <body>\
-    <div class=\"flex-container\" style=\"flex-direction: column;\">\
-      <div><button style=\"width:50%; justify-content: center;\" class=\"mdc-button mdc-button--raised\" onclick=\"window.location.href = \'/on\';\">Turn On</button></div>\
-      </br>\
-      <div><button style=\"width:50%; justify-content: center;\" class=\"mdc-button mdc-button--raised\" onclick=\"window.location.href = \'/off\';\">Turn Off</button></div>\
+    <div class=\"flex-container\" style=\"display:flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;\">\
+      <div class=\"container\"><button class=\"mdc-button mdc-button--raised\" onclick=\"window.location.href = \'/on\';\">Turn On</button></div>\
+      <div class=\"container\"><button class=\"mdc-button mdc-button--raised\" onclick=\"window.location.href = \'/off\';\">Turn Off</button></div>\
     </div>\
   </body>\
 </html>";
